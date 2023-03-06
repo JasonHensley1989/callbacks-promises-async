@@ -23,7 +23,7 @@ function createPost(post) {
         setTimeout(() => {
             posts.push(post);
             
-            const error = true;
+            const error = false;
 
             if(!error) {
                 resolve();
@@ -39,13 +39,36 @@ function createPost(post) {
 //     .then(getPosts)
 //     .catch(err => console.log(err))
 
+
+// Async - Await
+// in order to use async await, the async must be stated at the beginning to use await inside of the function
+
+// async function init() {
+//     await createPost({ title: "Post 4", body: "new post body"});
+
+//     getPosts();
+// }
+
+// init();
+
+
+//   Async Await Fetch
+async function fetchUsers() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await res.json();
+    console.log(data);
+}
+
+fetchUsers();
+
 // Promise.all
-const promise1 = Promise.resolve("Hello World");
-const promise2 = 10;
-const promise3 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 2000, 'Goodbye')
-});
-const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json())
+// const promise1 = Promise.resolve("Hello World");
+// const promise2 = 10;
+// const promise3 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 2000, 'Goodbye')
+// });
+// const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json())
 
 
-Promise.all([promise1, promise2, promise3, promise4]).then(values => console.log(values))
+// Promise.all([promise1, promise2, promise3, promise4]).then(values => console.log(values))
+
