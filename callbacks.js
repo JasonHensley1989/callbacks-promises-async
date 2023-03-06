@@ -11,19 +11,22 @@ function getPosts() {
     setTimeout(() => {
     let output = "";
     posts.forEach((post, index) => {
-        output += `<li>${post.title}</li> <li>${"Good Job"}</li>`;
+        output += `<li>${post.title}</li>`;
     });
     document.body.innerHTML = output;
     }, 1000)
 }    
 
 // this function mimics a create post which posts to the post array
-
-function createPost(post) {
+// because the timeout is longer than the getPosts the DOM is already
+// finished executing, therefore a callback is needed to push the post
+// before the DOM is executed, the callback 
+function createPost(post, callback) {
     setTimeout(() => {
         posts.push(post);
+        callback();
     }, 2000)
 }
 
-getPosts(); 
-createPost({ title: "Post Three", body: "new post body"});
+
+createPost({ title: "Post Three", body: "new post body"}, getPosts);
