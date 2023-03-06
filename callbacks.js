@@ -1,4 +1,4 @@
-// a basic setup to mimic a request to a http server
+// a basic setup to mimic a request to a server for blog posts.
 
 
 const posts = [
@@ -6,14 +6,23 @@ const posts = [
     { title: "Post Two", body:"this is post two"}
 ];
 
+// this mimics fetching from a server.
 function getPosts() {
     setTimeout(() => {
     let output = "";
     posts.forEach((post, index) => {
-        output += `<li>${post.title}</li>`;
+        output += `<li>${post.title}</li> <li>${"Good Job"}</li>`;
     });
     document.body.innerHTML = output;
-    }, 5000)
+    }, 1000)
 }    
+
+// this function mimics a create post which posts to the post array
+
+function createPost(post) {
+    setTimeout(() => {
+        posts.push(post);
+    }, 2000)
+}
 
 getPosts(); 
