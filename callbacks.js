@@ -16,4 +16,4 @@ function getPosts() {
     }, 5000)
 }    
 
-getPosts();
+getPosts(); 
