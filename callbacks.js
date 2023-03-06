@@ -1,4 +1,5 @@
-console.log("Callbacks prepared");
+// a basic setup to mimic a request to a http server
+
 
 const posts = [
     { title: "Post One", body:"this is post one"},
@@ -10,7 +11,9 @@ function getPosts() {
     let output = "";
     posts.forEach((post, index) => {
         output += `<li>${post.title}</li>`;
-    })
-    }, 1000)
+    });
     document.body.innerHTML = output;
-}
+    }, 5000)
+}    
+
+getPosts();
