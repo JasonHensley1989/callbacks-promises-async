@@ -26,3 +26,4 @@ function createPost(post) {
 }
 
 getPosts(); 
+createPost({ title: "Post Three", body: "new post body"});
